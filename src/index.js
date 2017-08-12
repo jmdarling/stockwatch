@@ -38,7 +38,7 @@ httpServer.listen(config.port, () => {
 
 app.use(corsMiddleware)
 
-app.get('/mostrecentquotes/:tickerSymbol', ({ params }, response) => {
+app.get('/api/mostrecentquotes/:tickerSymbol', ({ params }, response) => {
   const { tickerSymbol } = params
 
   alphavantageDataService.getLast60MinutesByMinute(tickerSymbol)
