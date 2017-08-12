@@ -28,7 +28,13 @@ const alphavantageClient = alphavantage({ key: config.alphavantageApiKey })
 const cachePrimeService = new CachePrimeService(redisClient)
 const alphavantageDataService = alphavantageDataServiceFactory(alphavantageClient, cachePrimeService, redisClient)
 
-httpServer.listen(8080)
+redisClient.on('ready', () => {
+  console.log('Stockwatch connected to redis')
+})
+
+httpServer.listen(config.port, () => {
+  console.log('StockWatch running')
+})
 
 app.use(corsMiddleware)
 
