@@ -1,6 +1,14 @@
 language: node_js
 node_js:
-  - "node"
+- node
 cache:
   directories:
-    - "node_modules"
+  - node_modules
+deploy:
+  provider: heroku
+  buildpack: nodejs
+  api_key:
+    secure: M0M6SsvwVuuXUFydAsIphZ7Hb/7Hl7bIDcW5+X5/adC/iCZSvR3HAY/gsiMydQ+KRHqYXDvLCRf5JHQtgt0Pt2aRv79Wg55KS1jcnM9cZDAAJmkFlMv7onKxLK9Kamcwnk0ZcUHDr8eo+xHpO2RUNNkY6X58+bz+fVvT60d3VvMbe0DX/bs/Zqx+U2/PmaJ4Yl1hyb0dMvCP53O3/ePMEPbt7EVQUQE+biQ7HL/q0mcQdoL8NCHk/0fEQcbvDQARcrw0LLRmrCgok93lIPzn/bHhpIIvc7nPm67nwSEWEU/iHLX7IDe5FSx1oU0+ZyWmZ0tz9KNzJC2OqMxicCC4PGkRGL/T+vlf9R/3ZKSkOxwEAXpJiYKIqUnozm8RaVwfzOHIPVpknnmc88n448MTtjISzWvmhf/vnq3Twj3Jxi8UgUcYCOkBhgwEe3G7qbKL13j0IVVKkoPcYfctGqwhTnmffn0DtR7jEp3/QYRmvsxiFEC/H/E0BdO9jGo2rJIFiX/gbmmnegwlMXEIvi6aW4UyPyutyFm7/yQLUBkmp+UlnjmeQBv8NmhVjSYDgfcCxxkkLVbPlf9TG9hvBjXv5eLluqkSa7cKu2rOPaT3W6QiywsEiodFFpvJ8XbESiJBp4mQ31Dw82pawzBf6REmDA0XONYKn9vJc6cjGpCTYOI=
+  skip_cleanup: true
+  app: stockwatch-server
+  on: prod
